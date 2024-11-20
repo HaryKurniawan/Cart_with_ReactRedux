@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleCart } from '../store';
+import './navbar.css';
 
 const Navbar = () => {
   const dispatch = useDispatch();

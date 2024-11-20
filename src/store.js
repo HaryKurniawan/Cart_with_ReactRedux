@@ -8,11 +8,12 @@ const cartSlice = createSlice({
   },
   reducers: {
     addToCart(state, action) {
-      const existingItem = state.items.find(item => item.id === action.payload.id);
+      const { id, quantity } = action.payload; // Ambil id dan quantity dari payload
+      const existingItem = state.items.find(item => item.id === id);
       if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity += quantity; // Menambahkan quantity yang dikirim
       } else {
-        state.items.push({ ...action.payload, quantity: 1 });
+        state.items.push({ ...action.payload }); // Menambahkan item baru dengan quantity yang dikirim
       }
     },
     removeFromCart(state, action) {

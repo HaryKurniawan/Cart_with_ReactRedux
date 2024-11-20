@@ -49,7 +49,7 @@ const ProductCard = ({ product }) => {
             className="btn btn-primary mt-auto" 
             onClick={(e) => {
               e.stopPropagation(); // Mencegah popup muncul saat tombol diklik
-              dispatch(addToCart(product));
+              dispatch(addToCart({ ...product, quantity: 1 })); // Menambahkan ke cart dengan quantity 1
             }}
           >
             Add to Cart
@@ -102,7 +102,7 @@ const ProductCard = ({ product }) => {
             <button 
               className="btn btn-success w-100 mt-3" 
               onClick={() => {
-                dispatch(addToCart({ ...product, quantity })); // Kirim quantity ke cart
+                dispatch(addToCart({ ...product, quantity })); // Mengirimkan quantity yang benar
                 handleCloseDetail();
               }}
             >
